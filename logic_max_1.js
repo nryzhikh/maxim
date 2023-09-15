@@ -63,10 +63,10 @@ else { var option = 'none'}
     if (typeof(web_link_ios) != 'undefined' && web_link_ios == '') {web_link_ios = web_link_desk};
     // if (typeof(store_link_and) != 'undefined' && store_link_and == '') {store_link_and = 'https://sberbank.com/sms/obnovy'};
     // if (typeof(store_link_ios) != 'undefined' && store_link_ios == '') {store_link_ios = 'https://online.sberbank.ru/CSAFront/index.do'};
-    if(ios_dp.search('sbolonline://') == -1){
-    if (typeof(ios_dp) != 'undefined' && ios_dp.search('^sberbankonline:|^sbolonline:') == 0 && ios_apps_dp[0] == '') {var ios_apps_dp = ['sbolonline://'+ios_dp.split('://')[1], 'sberbankonline://'+ios_dp.split('://')[1]]};
-    } else {
-    if (typeof(ios_dp) != 'undefined' && ios_dp.search('^sberbankonline:|^sbolonline:') == 0 && ios_apps_dp[0] == '') {var ios_apps_dp = ['sbolonline://'+ios_dp.split('://')[1], '']};
+    if(ios_dp.search('whatsapp://') == -1){
+    if (typeof(ios_dp) != 'undefined' && ios_dp.search('^whatsappbusiness:|^whatsapp:') == 0 && ios_apps_dp[0] == '') {var ios_apps_dp = ['whatsapp://'+ios_dp.split('://')[1], 'whatsappbusiness://'+ios_dp.split('://')[1]]}; } 
+    else {
+    if (typeof(ios_dp) != 'undefined' && ios_dp.search('^whatsappbusiness:|^whatsapp:') == 0 && ios_apps_dp[0] == '') {var ios_apps_dp = ['whatsapp://'+ios_dp.split('://')[1], '']};
     }
     // check for navigation
     if (dlhref.search('need_web=true')>0) {var need_web = true};
@@ -345,11 +345,11 @@ if (browser.search(/Chrom|Edge|YaBrowser|Opera/)>=0){
         // var brand = check_brand(navigator.userAgent);
 
         
-        if(app_data.search(/android-app|sberbankonline/)>=0) {
+        if(app_data.search(/android-app|whatsappbusiness/)>=0) {
             if (typeof(web_link_and_option) == 'undefined' || web_link_and_option == ''){
                 if ((need_web == false) || (web_link_desk.search("person/dist_services/inner_apps") >= 0 && web_link_desk.search("person/dist_services/inner_apps/packs") <= 0 )) {
                     if (browser == 'Opera' || browser == 'YaStart'|| browser == 'Miui 13+') {
-                        var dp_and_opr = dp_and.replace(new RegExp("^android-app:\/\/ru.sberbankmobile\/|^android-app:\/\/ru.sberbankmobile\/android-app\/ru.sberbankmobile\/|^sberbankonline:\/\/", "gm"), "intent://ru.sberbankmobile/") + "#Intent;scheme=android-app;package=ru.sberbankmobile;S.browser_fallback_url=" + encodeURIComponent(document.location.origin + document.location.pathname + '?round__two_and=' + get_final_web(web_link_and).replace(/#/, "_anchor_sl_")+ '&need_web=' + need_web + "&sl=" + sl_name + '&external_source=' + app_data.split('external_source=')[1]) + ";end";
+                        var dp_and_opr = dp_and.replace(new RegExp("^android-app:\/\/ru.sberbankmobile\/|^android-app:\/\/ru.sberbankmobile\/android-app\/ru.sberbankmobile\/|^whatsappbusiness:\/\/", "gm"), "intent://ru.sberbankmobile/") + "#Intent;scheme=android-app;package=ru.sberbankmobile;S.browser_fallback_url=" + encodeURIComponent(document.location.origin + document.location.pathname + '?round__two_and=' + get_final_web(web_link_and).replace(/#/, "_anchor_sl_")+ '&need_web=' + need_web + "&sl=" + sl_name + '&external_source=' + app_data.split('external_source=')[1]) + ";end";
                         setTimeout(function () { redirect_app_android('app', dp_and) }, 100);
                         
                     } else {
@@ -365,7 +365,7 @@ if (browser.search(/Chrom|Edge|YaBrowser|Opera/)>=0){
 
                     } else {
 
-                    var dp_and_opr = dp_and.replace(new RegExp("^android-app:\/\/ru.sberbankmobile\/|^android-app:\/\/ru.sberbankmobile\/android-app\/ru.sberbankmobile\/|^sberbankonline:\/\/", "gm"), "intent://ru.sberbankmobile/") + "#Intent;scheme=android-app;package=ru.sberbankmobile;S.browser_fallback_url=" + encodeURIComponent(document.location.origin + document.location.pathname + '?round__two_and=' + get_final_web(web_link_and).replace(/#/, "_anchor_sl_")+ '&need_web=' + need_web + "&sl=" + sl_name + '&external_source=' + app_data.split('external_source=')[1]) + ";end";
+                    var dp_and_opr = dp_and.replace(new RegExp("^android-app:\/\/ru.sberbankmobile\/|^android-app:\/\/ru.sberbankmobile\/android-app\/ru.sberbankmobile\/|^whatsappbusiness:\/\/", "gm"), "intent://ru.sberbankmobile/") + "#Intent;scheme=android-app;package=ru.sberbankmobile;S.browser_fallback_url=" + encodeURIComponent(document.location.origin + document.location.pathname + '?round__two_and=' + get_final_web(web_link_and).replace(/#/, "_anchor_sl_")+ '&need_web=' + need_web + "&sl=" + sl_name + '&external_source=' + app_data.split('external_source=')[1]) + ";end";
                     setTimeout(function () { redirect_app_android('app', dp_and_opr) }, 100);
                     }
                 }
@@ -373,7 +373,7 @@ if (browser.search(/Chrom|Edge|YaBrowser|Opera/)>=0){
             if (option == 1) {
                 need_web = false;
                  if (browser == 'Opera' || browser == 'YaStart'|| browser == 'Miui 13+') {
-                    var dp_and_opr = dp_and.replace(new RegExp("^android-app:\/\/ru.sberbankmobile\/|^android-app:\/\/ru.sberbankmobile\/android-app\/ru.sberbankmobile\/|^sberbankonline:\/\/", "gm"), "intent://ru.sberbankmobile/") + "#Intent;scheme=android-app;package=ru.sberbankmobile;S.browser_fallback_url=" + encodeURIComponent(document.location.origin + document.location.pathname + '?round__two_and=' + get_final_web(web_link_and).replace(/#/, "_anchor_sl_")+ '&need_web=' + need_web + "&sl=" + sl_name + '&external_source=' + app_data.split('external_source=')[1]) + ";end";
+                    var dp_and_opr = dp_and.replace(new RegExp("^android-app:\/\/ru.sberbankmobile\/|^android-app:\/\/ru.sberbankmobile\/android-app\/ru.sberbankmobile\/|^whatsappbusiness:\/\/", "gm"), "intent://ru.sberbankmobile/") + "#Intent;scheme=android-app;package=ru.sberbankmobile;S.browser_fallback_url=" + encodeURIComponent(document.location.origin + document.location.pathname + '?round__two_and=' + get_final_web(web_link_and).replace(/#/, "_anchor_sl_")+ '&need_web=' + need_web + "&sl=" + sl_name + '&external_source=' + app_data.split('external_source=')[1]) + ";end";
                     setTimeout(function () { redirect_app_android('app', dp_and_opr) }, 100);
                  
               } else {
